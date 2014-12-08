@@ -1,0 +1,55 @@
+﻿@using Ca2.Models
+@model Ca2.Models.Movie
+
+@{
+    ViewBag.Title = "Actors In Movie";
+}
+<div class="page-header">
+    <h2>Actors In movie</h2>
+</div>
+<div class="jumbotron2">
+    <fieldset>
+
+        <legend>@Model.movieName</legend>
+
+        <table class="table table-bordered table-striped">
+            <tr>
+                <th>Actor Id</th>
+                <th>Actor First Name</th>
+                <th>Actor Second Name</th>
+                <th>Actor Gener</th>
+                <th>Actor Age</th>
+                <th>Screen Name</th>
+            </tr>
+            @foreach (var actors in Model.actorsInMovie)
+            {
+                <tr>
+                    <td>@actors.actorId</td>
+                    <td>@actors.actorFName</td>
+                    <td>@actors.actorSName</td>
+                    <td>@actors.actorSex</td>
+                    <td>@actors.actorAge</td>
+                    @*<td>@ActorScreenName.scrrenName</td>*@
+                </tr>
+            }
+        </table>
+
+
+    </fieldset>
+    <p>
+        <div class="btn-group" role="group" aria-label="...">
+            @*<button type="button" class="btn btn-default">@Html.ActionLink("Edit", "AddActor")</button>*@
+            <button type="button" class="btn btn-default">@Html.ActionLink("Back to List", "Index")</button>
+            <button type="button" class="btn btn-default">@Html.ActionLink("Add Actor", "AddActor", new { id = Model.movieId })</button>
+        </div>
+    </p>
+
+</div>
+@section scripts
+{
+    <script>
+        $(function() {      
+            toastr.info('WOW Famous names');
+        });
+    </script>
+}

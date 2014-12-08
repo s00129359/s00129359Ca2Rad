@@ -1,0 +1,78 @@
+﻿@using Ca2.Models
+@model Ca2.Models.Actor
+
+@{
+    ViewBag.Title = "Edit";
+}
+<div class="center-block">
+
+    <h2>Edit</h2>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+
+        <fieldset>
+            <h2>@Model.actorFName @Model.actorSName</h2>
+
+            @Html.HiddenFor(model => model.actorId)
+
+            <div class="editor-label">
+                First Name
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.actorFName)
+                @Html.ValidationMessageFor(model => model.actorFName)
+            </div>
+
+            <div class="editor-label">
+                Second Name
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.actorSName)
+                @Html.ValidationMessageFor(model => model.actorSName)
+            </div>
+
+            <div class="editor-label">
+                Age
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.actorAge)
+                @Html.ValidationMessageFor(model => model.actorAge)
+            </div>
+
+            <div class="editor-label">
+                Gender
+            </div>
+            @*<div class="editor-field">
+                    @Html.ValidationMessageFor(model => model.actorSex)
+                    @Html.DropDownList(IEnumerable<sex>);
+                    @Html.DropDownListFor(IEnumerator<sex>);
+                    @Html.DropDownListFor(Model => Model.Sex)
+                    @Html.DropDownList("actorSex",
+                           new SelectList("actorId", "actorSex"))
+                    //new { @class = "form-control" })
+                </div>*@
+
+            <div class="editor-label">
+                Place Of Birth
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.placeOfBirth)
+                @Html.ValidationMessageFor(model => model.placeOfBirth)
+            </div>
+
+            <p>
+                <input type="submit" value="Save" />
+            </p>
+        </fieldset>
+    }
+
+    <div class="btn-group" role="group" aria-label="...">
+        <button type="button" class="btn btn-default">@Html.ActionLink("Back to Actor List", "Index")</button>
+    </div>
+</div>
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }

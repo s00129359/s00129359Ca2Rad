@@ -1,0 +1,38 @@
+﻿@model Ca2.Models.Actor
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="page-header">
+    <h2>Details</h2>
+
+</div>
+<div class="jumbotron2">
+    <fieldset>
+        
+        <h2>@Model.actorFName @Model.actorSName</h2>
+
+        <table class="table table-bordered table-striped">
+            <tr>
+                <th>Movie Name</th>
+                <th>Movie Genre</th>
+            </tr>
+            @foreach (var ActorMovies in Model.moviesActorIn)
+            {
+                <tr>
+                    <td>@ActorMovies.movieName</td>
+                    <td>@ActorMovies.movieGenre</td>
+                </tr>
+            }
+        </table>
+    </fieldset>
+    <p>
+        <div class="btn-group" role="group" aria-label="...">
+            <button type="button" class="btn btn-default">@Html.ActionLink("Add", "AddMovie", new { id = Model.actorId })</button>
+            <button type="button" class="btn btn-default">@Html.ActionLink("Back to Actor List", "")</button>
+        </div>
+         
+       
+    </p>
+</div>

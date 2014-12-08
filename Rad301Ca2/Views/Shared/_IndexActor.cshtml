@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Ca2.Models.Actor>
+
+<table class="table table-bordered table-striped">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.actorId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.actorFName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.actorSName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.actorAge)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.actorSex)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.placeOfBirth)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.actorId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.actorFName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.actorSName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.actorAge)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.actorSex)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.placeOfBirth)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.actorId }, new { @class = "btn btn-info btn-xs" }) |
+                @Html.ActionLink("Details", "Details", new { id = item.actorId }, new { @class = "btn btn-info btn-xs" }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.actorId }, new { @class = "btn btn-danger btn-xs" })
+            </td>
+        </tr>
+    }
+
+</table>

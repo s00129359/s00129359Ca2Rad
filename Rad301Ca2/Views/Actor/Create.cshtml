@@ -1,0 +1,65 @@
+﻿@model Ca2.Models.Actor
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<div class="page-header">
+    <h2>Add New Actor</h2>
+</div>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <div class="jumbotron2">
+        <fieldset class="center-block">
+            <h2>Actor</h2>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.actorFName)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.actorFName)
+                @Html.ValidationMessageFor(model => model.actorFName)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.actorSName)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.actorSName)
+                @Html.ValidationMessageFor(model => model.actorSName)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.actorAge)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.actorAge)
+                @Html.ValidationMessageFor(model => model.actorAge)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.placeOfBirth)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.placeOfBirth)
+                @Html.ValidationMessageFor(model => model.placeOfBirth)
+            </div>
+
+            <p>
+                <input type="submit" value="Create" />
+            </p>
+            <div class="btn-group" role="group" aria-label="...">
+                <button type="button" class="btn btn-default">@Html.ActionLink("Back to List", "Index")</button>
+            </div>
+        </fieldset>
+    </div>
+}
+
+        
+    
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }

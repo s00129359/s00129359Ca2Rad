@@ -1,0 +1,20 @@
+﻿@using Ca2.Models
+@model IEnumerable<Ca2.Models.Actor>
+
+@{
+    ViewBag.Title = "Actors";
+}
+
+
+<div class="page-header">
+    <h2>Actors List</h2>
+</div>
+<div class="jumbotron1">
+    <p>
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-default">@Html.ActionLink("Add Actor", "Create")</button>
+            <button type="button" class="btn btn-default">@Html.ActionLink("View All Movies", "Index", "Home")</button>
+            </div>
+    </p>
+    @Html.Partial("_IndexActor");
+</div>

@@ -1,0 +1,22 @@
+﻿@using Rad301Ca2.Controllers
+@model IEnumerable<Ca2.Models.Movie>
+
+@{
+    ViewBag.Title = "Movies Page";
+}
+
+
+<div class="page-header">
+    <h2>List of Movies</h2>
+</div>
+
+    <div class="jumbotron1">
+        
+            <div class="btn-group">
+                <button type="button" class="btn btn-default">@Html.ActionLink("Add Movie", "Create", new { @class = "btn btn-info btn-xs" })</button>
+                <button type="button" class="btn btn-default">@Html.ActionLink("View All Actors", "Index", "Actor")</button>
+            </div>
+        
+
+        @Html.Partial("_Index");
+    </div>

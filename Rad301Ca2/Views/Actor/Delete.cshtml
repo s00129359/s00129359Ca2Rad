@@ -1,0 +1,35 @@
+﻿@model Ca2.Models.Actor
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div>
+        <fieldset class="container center-block">
+            <h2>Delete???</h2>
+            <h2>Actor</h2>
+
+
+            <div class="display-field">
+                <h3 style="color: red">
+                    @Html.DisplayFor(model => model.actorFName)
+                    @Html.DisplayFor(model => model.actorSName)??
+                </h3>
+            </div>
+
+            <p>
+                <input type="submit" value="Delete" />       
+                
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-default">@Html.ActionLink("Dont Delete", "Index")</button>
+                </div>
+               
+            </p>
+        </fieldset>
+
+    </div>
+
+}

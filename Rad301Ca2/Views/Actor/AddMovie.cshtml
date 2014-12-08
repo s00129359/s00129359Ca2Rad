@@ -1,0 +1,38 @@
+﻿@model Ca2.Models.Actor
+
+@{
+    ViewBag.Title = "AddMovie";
+}
+
+<h2>AddMovie</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Movie</legend>
+        <h1>Please reutn to index as this will break if you click Create!!!!!!!!</h1>
+
+        <div class="form-group col-xs-4">
+            @*@Html.LabelFor(model => model.Actor.actorFName)*@
+            @*@Html.DropDownList("actorId", new SelectList(ViewBag.ActorsList, "actorId", "actorFName", Model.Actor.actorFName),
+                new { @class = "form-control" })*@
+            @Html.DropDownList("Movie", "Select Movie")
+            @*DropDownList with each movie to be added to an actor*@
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

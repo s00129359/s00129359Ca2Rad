@@ -1,0 +1,56 @@
+﻿@model Ca2.Models.Movie
+
+@{
+    ViewBag.Title = "Create";
+}
+<div class="page-header">
+    <h2>Add New Movie</h2>
+</div>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <div class="jumbotron2">
+        <fieldset class="center-block">
+            <h2>Movie</h2>
+
+            <div class="editor-label">
+                Enter Movie Name
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.movieName)
+                @Html.ValidationMessageFor(model => model.movieName)
+            </div>
+
+            <div class="editor-label">
+                Enter Movie Runtime
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.movieRuntime)
+                @Html.ValidationMessageFor(model => model.movieRuntime)
+            </div>
+
+            <div class="editor-label">
+                Enter Short Description
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.movieShortDescription)
+                @Html.ValidationMessageFor(model => model.movieShortDescription)
+            </div>
+
+            <p>
+                <input type="submit" value="Create" />
+            </p>
+
+            <div class="btn-group" role="group" aria-label="...">
+                <button type="button" class="btn btn-default">@Html.ActionLink("Movies List", "Index")</button>
+            </div>
+        </fieldset>
+    </div>
+}
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

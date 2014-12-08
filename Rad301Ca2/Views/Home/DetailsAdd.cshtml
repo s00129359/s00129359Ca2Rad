@@ -1,0 +1,61 @@
+﻿@model Ca2.Models.Actor
+
+@{
+    ViewBag.Title = "DetailsAdd";
+}
+
+<h2>DetailsAdd</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Actor</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.actorFName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.actorFName)
+            @Html.ValidationMessageFor(model => model.actorFName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.actorSName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.actorSName)
+            @Html.ValidationMessageFor(model => model.actorSName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.actorAge)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.actorAge)
+            @Html.ValidationMessageFor(model => model.actorAge)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.placeOfBirth)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.placeOfBirth)
+            @Html.ValidationMessageFor(model => model.placeOfBirth)
+        </div>
+        
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
